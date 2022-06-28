@@ -27,7 +27,7 @@ namespace Tasks
             AlternativeDialog = alternativeDialog;
         }
 
-        public void Launch(Player player)
+        public void Launch(Player @player)
         {
             if (Requirement != null)
             {
@@ -45,10 +45,10 @@ namespace Tasks
                 LaunchMainEvent(@player);
             }
         }
-        private void LaunchMainEvent(Player player)
+        private void LaunchMainEvent(Player @player)
         {
             Console.WriteLine(Dialog);
-            player.BackPack.Add(Object);
+            @player.BackPack.Add(Object);
             _isAlreadyLunch = true;
         }
 
