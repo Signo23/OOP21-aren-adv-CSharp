@@ -13,7 +13,7 @@
         /// <summary>
         /// Player's last direction
         /// </summary>
-        public Direction LastDirection { get; set;
+        public Direction LastDirection { get; set; }
         /// <summary>
         /// Player's backpack
         /// </summary>

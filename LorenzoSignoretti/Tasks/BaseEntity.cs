@@ -31,7 +31,7 @@ namespace Tasks
         {
             Position = position;
             IsDrawable = isDrawable;
-            HitBox = new Rectangle((int)Position.x, (int)Position.y, 32, 32);
+            HitBox = new Rectangle((int)Position.X, (int)Position.Y, 32, 32);
         }
     }
 }

@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tasks
+﻿namespace Tasks
 {
     public class InteractWithPlayerEvent : IBaseEvent
     {
         private bool _isAlreadyLunch;
-        private GameObject _object;
-        private GameObject? _requirement;
-        private string _dialog;
-        private string? _alternativeDialog;
+        private readonly GameObject _object;
+        private readonly GameObject? _requirement;
+        private readonly string _dialog;
+        private readonly string? _alternativeDialog;
 
         /// <summary>
         /// Constructor for InteractWithPlayerEvent.
@@ -39,13 +33,13 @@ namespace Tasks
             _alternativeDialog = alternativeDialog;
         }
 
-        public void Launch(Player @player)
+        public void Launch(Player player)
         {
             if (_requirement != null)
             {
                 if (player.BackPack.Contains(_requirement))
                 {
-                    LaunchMainEvent(@player);
+                    LaunchMainEvent(player);
                 } 
                 else
                 {
@@ -54,13 +48,13 @@ namespace Tasks
             }
             else
             {
-                LaunchMainEvent(@player);
+                LaunchMainEvent(player);
             }
         }
-        private void LaunchMainEvent(Player @player)
+        private void LaunchMainEvent(Player player)
         {
             Console.WriteLine(_dialog);
-            @player.BackPack.Add(_object);
+            player.BackPack.Add(_object);
             _isAlreadyLunch = true;
         }
 

@@ -8,11 +8,11 @@
         /// <summary>
         /// Point's x coordinate
         /// </summary>
-        public float x { get; set; }
+        public float X { get; set; }
         /// <summary>
         /// Point's y coordinate
         /// </summary>
-        public float y { get; set; }
+        public float Y { get; set; }
 
         /// <summary>
         /// Create a point on x, y coordinates.
@@ -21,8 +21,8 @@
         /// <param name="y">the y coordinate</param>
         public Point2D(float x, float y)
         {
-            this.x = x;
-            this.y = y;
+            X = x;
+            Y = y;
         }
 
         /// <summary>
@@ -34,11 +34,11 @@
         }
 
         public override bool Equals(object? obj) => obj is Point2D d &&
-                   x == d.x &&
-                   y == d.y;
+                   X == d.X &&
+                   Y == d.Y;
 
-        public override int GetHashCode() => HashCode.Combine(x, y);
+        public override int GetHashCode() => HashCode.Combine(X, Y);
 
-        public override string? ToString() => "Point2D [x=" + x + ", y=" + y + "]";
+        public override string? ToString() => "Point2D [x=" + X + ", y=" + Y + "]";
     }
 }

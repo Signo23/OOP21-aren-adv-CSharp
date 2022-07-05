@@ -1,10 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tasks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tasks.Tests
 {
@@ -14,23 +8,22 @@ namespace Tasks.Tests
         [TestMethod()]
         public void EventsTest()
         {
-            GameObject _key = new(new Point2D(), true, BaseObjectEnum.Key);
-            GameObject _potion = new(new Point2D(), true, BaseObjectEnum.Potion);
-            List<GameObject> _gameObjects = new List<GameObject> { _potion, _key };
-            IBaseEvent _chestEvent = new InteractWithPlayerEvent(@_potion, "Ecco la pozione");
-            IBaseEvent _boxEvent = new InteractWithPlayerEvent(@_key, @_potion, "Ecco la chiave" , "Prima la pozione");
-            Block _chestBlock = new(new Point2D(), true, BaseObjectEnum.Chest, _chestEvent);
-            Block _boxBlock = new(new Point2D(), true, BaseObjectEnum.Box, _boxEvent);
-            GameMap _map = new();
-            Player _player = new(new Point2D());
-            _map.AddBlocks(new List<Block> { _chestBlock, _boxBlock });
+            GameObject key = new(new Point2D(), true, BaseObjectEnum.Key);
+            GameObject potion = new(new Point2D(), true, BaseObjectEnum.Potion);
+            IBaseEvent chestEvent = new InteractWithPlayerEvent(potion, "Ecco la pozione");
+            IBaseEvent boxEvent = new InteractWithPlayerEvent(key, potion, "Ecco la chiave" , "Prima la pozione");
+            Block chestBlock = new(new Point2D(), true, BaseObjectEnum.Chest, chestEvent);
+            Block boxBlock = new(new Point2D(), true, BaseObjectEnum.Box, boxEvent);
+            GameMap map = new();
+            Player player = new(new Point2D());
+            map.AddBlocks(new List<Block> { chestBlock, boxBlock });
 
-            foreach ( Block b in _map.Blocks)
+            foreach ( Block b in map.Blocks)
             {
-                b.Event.Launch(@_player);
+                b.Event.Launch(player);
             }
-            Assert.IsTrue(_player.BackPack.Contains(_key));
-            Assert.IsTrue(_player.BackPack.Contains(_potion));
+            Assert.IsTrue(player.BackPack.Contains(key));
+            Assert.IsTrue(player.BackPack.Contains(potion));
 
         }
 
