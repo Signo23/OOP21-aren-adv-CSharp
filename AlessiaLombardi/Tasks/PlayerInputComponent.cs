@@ -1,39 +1,35 @@
-namespace AlessiaLombardi.Tasks
+namespace Tasks
 {
-    using LorenzoSignoretti.Tasks.BaseEntity;
-    using LorenzoSignoretti.Tasks.Player;
-    using LorenzoSignoretti.Tasks.Direction;
     ///<summary>
     ///The input component for the <c>Player</c>.
     /// </summary>
     public class PlayerInputComponent : IInputComponent
     {
-        override
-        public void Update(BaseEntity entity, InputController controller)
+        public void Update(Player player, IInputController controller)
         {
             if (controller.IsMoveUp())
             {
-                ((Player)entity).SetLastDirection(Direction.UP);
-                ((Player)entity).SetIdle(false);
+                player.LastDirection = Direction.Up;
+                player.IsIdle = false;
             }
             else if (controller.IsMoveDown())
             {
-                ((Player)entity).SetLastDirection(Direction.DOWN);
-                ((Player)entity).SetIdle(false);
+                player.LastDirection = Direction.Down;
+                player.IsIdle = false;
             }
             else if (controller.IsMoveLeft())
             {
-                ((Player)entity).SetLastDirection(Direction.LEFT);
-                ((Player)entity).SetIdle(false);
+                player.LastDirection = Direction.Left;
+                player.IsIdle = false;
             }
             else if (controller.IsMoveRight())
             {
-                ((Player)entity).SetLastDirection(Direction.RIGHT);
-                ((Player)entity).SetIdle(false);
+                player.LastDirection = Direction.Right;
+                player.IsIdle = false;
             }
             else
             {
-                ((Player)entity).SetIdle(true);
+                player.IsIdle = true;
             }
         }
     }

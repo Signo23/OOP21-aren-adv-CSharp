@@ -1,11 +1,10 @@
-namespace AlessiaLombardi.Tasks 
+namespace Tasks 
 {
     ///<summary>
     ///The interface for the input's controller
     ///</summary>
-    public interface InputController
+    public interface IInputController
     {
-
         bool IsMoveUp();
         bool IsMoveDown();
         bool IsMoveLeft();

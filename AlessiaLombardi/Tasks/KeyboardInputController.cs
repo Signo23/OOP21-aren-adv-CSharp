@@ -1,4 +1,4 @@
-namespace AlessiaLombardi.Tasks
+namespace Tasks
 {
     ///<summary>
     ///The input controller for the keyboard.
